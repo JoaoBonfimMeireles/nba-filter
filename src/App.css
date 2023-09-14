@@ -6,9 +6,13 @@
   justify-content: center;
 }
 
+input {
+  width: 10rem;
+}
+
 ul {
   list-style: none;
-  padding-left: 0.5rem;
+  padding-left: 0;
   margin: 0;
 }
 
@@ -16,12 +20,22 @@ ul p {
   text-align: center;
   padding: 0.2rem 0;
   margin: 0;
+}
+
+li {
+  gap: 0.5rem;
+  display: flex;
+  width: 9rem;
   border-bottom: 1px solid black;
-  width: 10rem;
   transition: 200ms ease 0s;
 }
 
-ul p:hover {
+li:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px, rgba(0, 0, 0, 0.12) 0px 3px 6px;
   transform: scale(1.009);
+}
+
+.logo-search {
+  width: 20px;
+  object-fit: contain;
 }
