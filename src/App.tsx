@@ -1,37 +1,54 @@
-import React, { useState, ChangeEvent, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { nbaTeams } from "./data/nbaTeams";
 
 import "./App.css";
 
 function App() {
   const [search, setSearch] = useState("");
-  const [inputValue, setInputValue] = useState("");
+  const [searchClick, setSearchClick] = useState("");
 
   console.log(search);
 
-  const searchLowerCase = search.toLowerCase();
+  const searchLowerCase = search.toLocaleLowerCase();
 
-  const teams = nbaTeams.filter((team) =>
-    team.name.toLowerCase().includes(searchLowerCase)
+  const teams = nbaTeams.filter(
+    (team) =>
+      team.name.toLocaleLowerCase().includes(searchLowerCase) ||
+      team.city.toLocaleLowerCase().includes(searchLowerCase)
   );
+  //O To lowe case, deixa tudo em caixa baixa
 
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value);
+  //const teams = nbaTeams.filter((team) => team.name.includes(search));
+  //a pesquisa está funcionado com o const acima, porém não funciona com caixa alta
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+    setSearchClick("");
   };
 
-  const handleChooseTeam = (team: (typeof nbaTeams)[number]) => {
-    setSearch(team.name);
-    setInputValue(team.name);
+  const handleClick = (name: string) => {
+    setSearchClick(name);
   };
+
+  console.log(searchClick);
 
   return (
     <div className="App">
-      <input type="search" value={inputValue} onChange={handleInputChange} />
+      <input
+        type="search"
+        placeholder="Digite o nome ou cidade"
+        value={searchClick + search}
+        onChange={handleInputChange}
+      />
 
       <ul>
         {teams.map((team) => (
-          <li key={team.name} onClick={() => handleChooseTeam(team)}>
-            <img className="logo-search" src={team.logoImgLink} alt={team.name} />
+          <li key={team.name} onClick={() => handleClick(team.name)}>
+            <img
+              className="logo-search"
+              src={team.logoImgLink}
+              alt={team.name}
+            />
             <p>{team.name}</p>
           </li>
         ))}
