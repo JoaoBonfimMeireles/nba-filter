@@ -7,6 +7,7 @@ function App() {
   const [search, setSearch] = useState("");
   const [searchClick, setSearchClick] = useState("");
 
+
   console.log(search);
 
   const searchLowerCase = search.toLocaleLowerCase();
@@ -31,17 +32,19 @@ function App() {
   };
 
   console.log(searchClick);
+  
+  const hasContent = teams.some((team) => team.name === search || team.name === searchClick);
 
   return (
     <div className="App">
       <input
         type="search"
         placeholder="Digite o nome ou cidade"
-        value={searchClick + search}
+        value={searchClick || search}
         onChange={handleInputChange}
       />
 
-      <ul>
+      <ul className={`${!hasContent ? "ul-clean " : "ul-dity"}`}>
         {teams.map((team) => (
           <li key={team.name} onClick={() => handleClick(team.name)}>
             <img

@@ -4,17 +4,21 @@
   flex-direction: column;
   align-items: start;
   justify-content: top;
-  padding: 3rem;
+  margin: 3rem;
 }
 
 input {
   width: 10rem;
 }
 
-ul {
+.ul-clean {
   list-style: none;
   padding-left: 0;
   margin: 0 0 0 0.5rem;
+}
+
+.ul-dity {
+  display: none;
 }
 
 ul p {
