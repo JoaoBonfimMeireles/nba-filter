@@ -1,5 +1,6 @@
 export interface NBATeams {
     city: string;
+    cityLink: string;
     name: string;
     div: string;
     foundation: number;
@@ -10,6 +11,7 @@ export interface NBATeams {
 export const nbaTeams: NBATeams[] = [
     {
       city: "Los Angeles",
+      cityLink: "https://raw.githubusercontent.com/JoaoBonfimMeireles/nba-filter/5d78b94c760a51de9b1df1d7d5d4be2d6bcc9555/public/assets/los-angeles-new.jpg",
       name: "Lakers",
       div: "Pacific",
       foundation: 1947,
@@ -18,6 +20,7 @@ export const nbaTeams: NBATeams[] = [
     },
     {
       city: "Los Angeles",
+      cityLink: "https://raw.githubusercontent.com/JoaoBonfimMeireles/nba-filter/5d78b94c760a51de9b1df1d7d5d4be2d6bcc9555/public/assets/los-angeles.jpg",
       name: "Clippers",
       div: "Pacific",
       foundation: 1970,
@@ -26,6 +29,7 @@ export const nbaTeams: NBATeams[] = [
     },
     {
       city: "Phoenix",
+      cityLink: "https://raw.githubusercontent.com/JoaoBonfimMeireles/nba-filter/5d78b94c760a51de9b1df1d7d5d4be2d6bcc9555/public/assets/phoenix.jpg",
       name: "Suns",
       div: "Pacific",
       foundation: 1968,
@@ -34,6 +38,7 @@ export const nbaTeams: NBATeams[] = [
     },
     {
       city: "San Antonio",
+      cityLink: "https://raw.githubusercontent.com/JoaoBonfimMeireles/nba-filter/5d78b94c760a51de9b1df1d7d5d4be2d6bcc9555/public/assets/san%20antonio.jpg",
       name: "Spurs",
       div: "Southwest",
       foundation: 1967,
@@ -42,6 +47,7 @@ export const nbaTeams: NBATeams[] = [
     },
     {
       city: "Toronto",
+      cityLink: "https://raw.githubusercontent.com/JoaoBonfimMeireles/nba-filter/5d78b94c760a51de9b1df1d7d5d4be2d6bcc9555/public/assets/toronto.jpg",
       name: "Raptors",
       div: "Atlantic",
       foundation: 1995,
@@ -50,6 +56,7 @@ export const nbaTeams: NBATeams[] = [
     },
     {
       city: "Utah",
+      cityLink: "https://raw.githubusercontent.com/JoaoBonfimMeireles/nba-filter/5d78b94c760a51de9b1df1d7d5d4be2d6bcc9555/public/assets/utah.jpg",
       name: "Jazz",
       div: "Northwest",
       foundation: 1974,
@@ -58,6 +65,7 @@ export const nbaTeams: NBATeams[] = [
     },
     {
       city: "Washington",
+      cityLink: "https://raw.githubusercontent.com/JoaoBonfimMeireles/nba-filter/5d78b94c760a51de9b1df1d7d5d4be2d6bcc9555/public/assets/washington.jpg",
       name: "Wizards",
       div: "Southeast",
       foundation: 1961,

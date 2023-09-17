@@ -37,8 +37,21 @@ function App() {
     (team) => team.name === search || team.name === searchClick
   );
 
+  
+  let backgroundStyle = {}; 
+
+  if (hasContent) {
+    const selectedTeam = teams.find((team) => team.name === search || team.name === searchClick);
+    if (selectedTeam) {
+      backgroundStyle = {
+        backgroundImage: `url(${selectedTeam.cityLink})`,
+      };
+    }
+  }
+
   return (
-    <div className="App">
+    <div className="App"
+    style={backgroundStyle}>
       <div className="box-input">
         <input
           type="search"
@@ -60,7 +73,17 @@ function App() {
           ))}
         </ul>
       </div>
-      <Content />
+      {teams.map((team) => (
+        <Content
+          key={team.name}
+          city={team.city}
+          name={team.name}
+          div={team.div}
+          foundation={team.foundation}
+          players={team.players}
+          logoImgLink={team.logoImgLink}
+        />
+      ))}
     </div>
   );
 }

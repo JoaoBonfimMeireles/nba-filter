@@ -5,6 +5,8 @@
   align-items: start;
   justify-content: top;
   margin: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 input {
