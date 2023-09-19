@@ -1,26 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { nbaTeams } from "./data/nbaTeams";
 
 import "./App.css";
-import Content from "./componentes/Content/Content";
 
 function App() {
-  const [search, setSearch] = useState("");
-  const [searchClick, setSearchClick] = useState("");
-
-  console.log(search);
-
-  const searchLowerCase = search.toLocaleLowerCase();
+  const [search, setSearch] = useState<string>("");
+  const [searchClick, setSearchClick] = useState<string>("");
+  const searchLowerCase = search.toLowerCase();
 
   const teams = nbaTeams.filter(
     (team) =>
-      team.name.toLocaleLowerCase().includes(searchLowerCase) ||
-      team.city.toLocaleLowerCase().includes(searchLowerCase)
+      team.name.toLowerCase().includes(searchLowerCase) ||
+      team.city.toLowerCase().includes(searchLowerCase)
   );
-  //O To lowe case, deixa tudo em caixa baixa
 
-  //const teams = nbaTeams.filter((team) => team.name.includes(search));
-  //a pesquisa está funcionado com o const acima, porém não funciona com caixa alta
+  const hasContent = searchClick !== "";
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
@@ -31,17 +25,14 @@ function App() {
     setSearchClick(name);
   };
 
-  console.log(searchClick);
+  const selectedTeam = teams.find((team) => team.name === searchClick);
 
-  const hasContent = teams.some(
-    (team) => team.name === search || team.name === searchClick
-  );
-
-  
-  let backgroundStyle = {}; 
+  let backgroundStyle = {};
 
   if (hasContent) {
-    const selectedTeam = teams.find((team) => team.name === search || team.name === searchClick);
+    const selectedTeam = teams.find(
+      (team) => team.name === search || team.name === searchClick
+    );
     if (selectedTeam) {
       backgroundStyle = {
         backgroundImage: `url(${selectedTeam.cityLink})`,
@@ -50,17 +41,17 @@ function App() {
   }
 
   return (
-    <div className="App"
-    style={backgroundStyle}>
+    <div className="App" style={backgroundStyle}>
       <div className="box-input">
+        <h2>Times da NBA</h2>
         <input
           type="search"
-          placeholder="Digite o nome ou cidade"
+          placeholder="Digite o nome ou cidade do time"
           value={searchClick || search}
           onChange={handleInputChange}
         />
 
-        <ul className={`${!hasContent ? "ul-clean " : "ul-dity"}`}>
+        <ul className={`${hasContent ? "ul-dirty" : "ul-clean"}`}>
           {teams.map((team) => (
             <li key={team.name} onClick={() => handleClick(team.name)}>
               <img
@@ -73,17 +64,28 @@ function App() {
           ))}
         </ul>
       </div>
-      {teams.map((team) => (
-        <Content
-          key={team.name}
-          city={team.city}
-          name={team.name}
-          div={team.div}
-          foundation={team.foundation}
-          players={team.players}
-          logoImgLink={team.logoImgLink}
-        />
-      ))}
+
+      {selectedTeam && (
+        <div className="box-text">
+          <div className="box-top">
+            <img src={selectedTeam.logoImgLink} alt={searchClick} />
+            <h1>{searchClick}</h1>
+          </div>
+          <div className="box-all">
+            <p>Fundação: {selectedTeam.foundation}</p>
+            <p>Cidade: {selectedTeam.city}</p>
+            <p>Divisão do Pacífico: {selectedTeam.div}</p>
+            <div className="box-list">
+              <h3>Principais jogadores:</h3>
+              <ul>
+                {selectedTeam.players.map((player) => (
+                  <li key={player}>{player}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
