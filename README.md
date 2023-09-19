@@ -20,13 +20,12 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - React
 - TypeScript
-- API
 - Git e Github
 - HTML e CSS
 
 ## 💻 Projeto:
 
-NBA filter API com input de pesquisa.
+NBA filter com input de pesquisa.
 
 ---
 
