@@ -1,15 +1,15 @@
-<h1 align="center"> Buscador GitHub com API </h1>
+<h1 align="center"> NBA filter </h1>
 
 <br>
 
 <p align="center">
-  <img alt="projeto DevLinks" src="/public/assets/search.png" width="48%" height="17rem">
-    <img alt="projeto DevLinks" src="/public/assets/profile.png" width="48%" height="17rem">
+  <img alt="projeto DevLinks" src="/public/assets/start.png" width="48%" height="17rem">
+    <img alt="projeto DevLinks" src="/public/assets/end.png" width="48%" height="17rem">
 </p>
 
 ## ⚙️ Como rodar o projeto:
 
-- Clonar o projeto usando SSH e é necessário executar o comando: git@github.com:JoaoBonfimMeireles/githubAPI.git
+- Clonar o projeto usando SSH e é necessário executar o comando: git@github.com:JoaoBonfimMeireles/nba-filter.git
 - Instalar as dependências: yarn ou npm install (caso a pessoa use o npm)
 
 Feito isso, basta usar o comando yarn start ou npm start (caso a pessoa use o npm) e será aberta uma página web com o projeto.
@@ -26,7 +26,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto:
 
-GitHub API com input de pesquisa.
+NBA filter API com input de pesquisa.
 
 ---
 
