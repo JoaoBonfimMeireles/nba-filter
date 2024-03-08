@@ -63,7 +63,6 @@ function App() {
           ))}
         </ul>
       </div>
-
       {selectedTeam && (
         <div className="box-text">
           <div className="box-top">
