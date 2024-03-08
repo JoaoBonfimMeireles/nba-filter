@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { nbaTeams } from "./data/nbaTeams";
-
 import "./App.css";
 
 function App() {
