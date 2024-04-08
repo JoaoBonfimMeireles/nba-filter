@@ -1,7 +1,5 @@
 <h1 align="center"> NBA filter </h1>
-
 <br>
-
 <p align="center">
   <img alt="projeto DevLinks" src="/public/assets/start.png" width="48%" height="250px">
     <img alt="projeto DevLinks" src="/public/assets/end.png" width="48%" height="250px">
