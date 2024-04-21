@@ -7,7 +7,6 @@ export interface NBATeams {
     players: string[];
     logoImgLink: string;
 }
-
 export const nbaTeams: NBATeams[] = [
     {
       city: "Los Angeles",
